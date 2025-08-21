@@ -2,13 +2,14 @@ package service;
 
 import java.util.List;
 
+import dto.UserDTO;
 import model.User;
 
 public interface IUser {
 
-    List<User> listar();
-    User crear(User user);
-    User obtener(Long id);
-    User actualizar(Long id, User user);
-    void eliminar(Long id);
+    List<UserDTO> getAllUsers();
+    UserDTO createUser(User user);
+    UserDTO getById(Long id);
+    UserDTO update(Long id, UserDTO user);
+    void delete(Long id);
 }

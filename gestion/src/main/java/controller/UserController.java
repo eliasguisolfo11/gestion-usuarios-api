@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dto.UserDTO;
 import model.User;
 import service.IUser;
 
@@ -27,27 +28,22 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> listar() {
-        return userService.listar();
-    }
+    public List<UserDTO> getAll() {return userService.getAllUsers();}
+
 
     @PostMapping
-    public User crear(@RequestBody User user) {
-        return userService.crear(user);
-    }
+    public UserDTO create(@RequestBody User user) {return userService.createUser(user);}
+    
 
     @GetMapping("/{id}")
-    public User obtener(@PathVariable Long id) {
-        return userService.obtener(id);
-    }
+    public UserDTO getById(@PathVariable Long id) {return userService.getById(id);}
+        
 
     @PutMapping("/{id}")
-    public User actualizar(@PathVariable Long id, @RequestBody User user) {
-        return userService.actualizar(id, user);
-    }
+    public UserDTO update(@PathVariable Long id, @RequestBody UserDTO user) { return userService.update(id, user);}
+    
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable Long id) {
-        userService.eliminar(id);
-    }
+    public void delete(@PathVariable Long id) {userService.delete(id);}
+    
 }

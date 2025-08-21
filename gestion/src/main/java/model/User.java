@@ -14,16 +14,18 @@ public class User{
 
     private String name;
     private String email;
+    private String password;
 
     // Getters y setters
 
     public User() {
     }
 
-    public User(String email, Long id, String name) {
+    public User(String email, Long id, String name, String password) {
         this.email = email;
         this.id = id;
         this.name = name;
+        this.password = password;
     }
 
     public Long getId() {
@@ -48,6 +50,14 @@ public class User{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }
